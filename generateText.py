@@ -6,6 +6,7 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "<your OpenAI API key i
 
 # Example OpenAI Python library request
 MODEL = "gpt-3.5-turbo"
+# Note you can change the model to your prefered model
 # response = client.chat.completions.create(
 #     model=MODEL,
 #     messages=[
