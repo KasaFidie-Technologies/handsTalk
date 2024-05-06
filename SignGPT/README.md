@@ -8,13 +8,10 @@ Team: GeekTeam hackathon group
 Ezra
 Enoch Djam Beamahn
 
-To run:
-cd to directory
+To run install all dependencies which can be found in the requirements.txt
 
-run this in the terminal to activate venv.
-source venv/bin/activate
-
-run the signGPT.py
+cd to the directory
+run signGPT.py
 
 
 

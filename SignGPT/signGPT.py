@@ -52,14 +52,30 @@ class HandDetectionApp(QWidget):
         self.setGeometry(100, 100, 800, 600) 
 
         self.sentence = []  # Define sentence list outside update_frame method
-        self.word = ['']
-        self.cursor = ['|']
+        self.letter_arr = ''
+        self.final_letter = ['']
         self.output = ''
 
         self.text_edit1.clicked.connect(self.update_frame)
         # print(self.update_frame())
 
+
     def update_frame(self):
+
+        def check_same_elements(arr):
+            if len(arr) == 0:
+                return True  # Empty array is considered to have all elements the same
+
+            first_element = arr[0]
+            for element in arr[1:]:
+                if element != first_element:
+                    return False  # Found an element different from the first element
+
+            return True  # All elements are th
+
+
+
+
         model_dict = pickle.load(open('./model.p', 'rb'))
         model = model_dict['model']
         mp_hands = mp.solutions.hands
@@ -113,17 +129,22 @@ class HandDetectionApp(QWidget):
             predicted_character = labels_dict[int(prediction[0])]
             self.sentence.append(predicted_character)
 
+
             if len(self.sentence) > 10: 
                 self.sentence = self.sentence[-10:]
-                if predicted_character != self.word[-1]:
+                arr = self.sentence
+                if check_same_elements(arr) == True:
+                    self.letter_arr = arr[0]
+
                     current_text = self.textfield.toPlainText()
-                    self.sentence.clear()
-                    if current_text == '':
-                        self.textfield.setText(predicted_character)
-                    if predicted_character != current_text[-1]:  # Check if the predicted character is different from the last appended character
-                        updated_text = current_text + predicted_character
-                        self.textfield.setText(updated_text)
-        
+                    if len(current_text) == 0:
+                            self.textfield.setText(self.letter_arr)
+                    else:
+                        if current_text[-1] != self.letter_arr:
+                                update = current_text + self.letter_arr
+                                self.textfield.setText(update)
+
+            
 
             cv2.rectangle(frame, (0,0), (640, 40), (245, 117, 16), -1)
             cv2.putText(frame, ' '.join(self.sentence), (3,30), 
@@ -132,9 +153,8 @@ class HandDetectionApp(QWidget):
 
         image = QImage(frame, frame.shape[1], frame.shape[0], QImage.Format_RGB888)
         self.image_label.setPixmap(QPixmap.fromImage(image))
-
-        return self.word
     
+        return self.letter_arr
 
     def get_text(self):
         text = self.textfield.toPlainText()  # Retrieve text from QTextEdit widget
