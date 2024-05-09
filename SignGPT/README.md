@@ -25,7 +25,10 @@ To use this app first check the image file to know the possible sign detections 
 4. Compose messages using the sign language symbols in the text input field.
 5. View the composed messages in the text display field.
 6. Click on submit button after composing your message for respond from chatGPT 3.5 turbo
-7. You can also edit message using the keyboard 
+7. You can also edit message using the keyboard
+
+## Challenges
+We were unable to get the correct emojis for our translation and we are asking for anyone assistant, we appreciate that help.
 
 ## Contributor
 - Ezra Asiedu
