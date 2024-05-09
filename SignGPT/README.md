@@ -14,7 +14,7 @@ This PyQt5 application utilizes hand detection techniques to convert hand gestur
 All requirement are stated in the requirement file
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/your-repo.git`
+1. Clone the repository:
 2. Install the required dependencies:
 
 ## Usage
