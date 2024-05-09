@@ -28,7 +28,7 @@ To use this app first check the image file to know the possible sign detections 
 7. You can also edit message using the keyboard
 
 ## Challenges
-We were unable to get the correct emojis for our translation and we are asking for anyone assistant, we appreciate that help.
+We were unable to get the correct emojis for our translation and we are asking for any assistant, we appreciate that help.
 
 ## Contributor
 - Ezra Asiedu
