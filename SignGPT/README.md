@@ -43,7 +43,7 @@ To use this app first check the image file to know the possible sign detections 
 -  Thanks to ATF Challenge who has place us on enthusiastic development atmosphere.
 
 ## video
-[https://drive.google.com/file/d/1PMWtXzu7Ps0vSoe5cilXtnEAanB0GXEz/view?usp=drive_link]
+[https://drive.google.com/file/d/12NCj1gQI6q7Gu56RuQ1pHcAuvn0Metdr/view?usp=sharing]
 
 
 ## Bigger Vision
