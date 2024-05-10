@@ -1,6 +1,5 @@
 mediapipe
 pyqt5
-pickle
 numpy
 opencv-python
 openai
