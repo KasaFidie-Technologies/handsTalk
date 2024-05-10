@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget, QTextEdit, QPushButton, QGridLayout, QLabel, QSizePolicy
 from PyQt5.QtGui import QImage, QPixmap, QFont
 from PyQt5.QtCore import QTimer
+from PyQt5 import QtGui
 import cv2
 import mediapipe as mp
 import pickle
@@ -16,6 +17,8 @@ class HandDetectionApp(QWidget):
 
     def initUI(self):
         self.setWindowTitle('signGPT')
+        self.setStyleSheet("background-color: #232323;")
+
         
         
         self.video_capture = cv2.VideoCapture(0)  # Access the default camera (index 0)
@@ -30,9 +33,6 @@ class HandDetectionApp(QWidget):
         self.text_display = QTextEdit()
         self.text_display.setReadOnly(True)
         self.text_display.setStyleSheet("background-color: lightgray; border: 2px solid gray;")
-        self.text_display_sign = QTextEdit()
-        self.text_display_sign.setReadOnly(True)
-        self.text_display_sign.setStyleSheet("background-color: lightgray; border: 2px solid gray;")
         self.submit_button = QPushButton('Submit')
         self.submit_button.setStyleSheet("background-color: #007BFF; color: white; border: 2px solid #007BFF;")
         self.submit_button.setFixedHeight(40)  # Set the height of the button
@@ -41,32 +41,29 @@ class HandDetectionApp(QWidget):
 
 
         # placeholders
-        self.set_placeholder_text(self.text_display_sign, 'sign text here...')
         self.set_placeholder_text(self.text_display, 'chatGPT text here...')
         self.set_placeholder_text(self.textfield, 'converted sign here...')
 
         font = QFont()
-        font.setPointSize(14)
+        font.setPointSize(20)
         self.text_display.setFont(font)
-        self.text_display_sign.setFont(font)
+  
 
 
         self.camera_display.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.text_display.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.text_display_sign.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
 
-        layout.addWidget(self.text_display, 0, 0, 2, 1)
-        layout.addWidget(self.text_display_sign, 2, 0)
+        layout.addWidget(self.text_display, 0, 0, 3, 1)
         layout.addWidget(self.submit_button, 3, 0)
-        layout.addWidget(self.camera_display, 0, 1, 4, 1)
-        layout.addWidget(self.textfield, 0, 1, 2, 1)
+        layout.addWidget(self.textfield, 0, 1, 3, 1)
+        layout.addWidget(self.camera_display,1, 1, 4, 1)
+        # layout.addWidget(self.textfield, 0, 1, 2, 1)
 
         #  connect when clicked  
         self.submit_button.clicked.connect(self.get_text) 
-        # self.text_edit1.clicked.connect(self.get_text)
-        self.submit_button.clicked.connect(self.copy_images_for_letters)
-        # self.submit_button.clicked.connect(self.update_frame)
+
+
         
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_frame)
@@ -167,6 +164,7 @@ class HandDetectionApp(QWidget):
                         if current_text[-1] != self.letter_arr:
                                 update = current_text + self.letter_arr
                                 self.textfield.setText(update)
+                                
 
             
 
@@ -186,34 +184,6 @@ class HandDetectionApp(QWidget):
         self.text_display.setText(self.result)
 
         return self.result
-
-    def copy_images_for_letters(self):
-        letters = self.get_text()
-
-        letter = letters.lower()
-        letters = [char for char in letter]
-        signAlpha = {1:'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i', 10: 'j',
-                     11: 'k', 12: 'l', 13: 'm', 14: 'n', 15: 'o', 16: 'p', 17: 'q', 18: 'r', 19: 's', 20: 't',
-                     21: 'u', 22: 'v', 23: 'w', 24: 'x', 25: 'y', 26: 'z', 27: ' ', 28: '.', 29: ',',
-                     30: '0', 31: '1', 32: '2', 33: '3', 34: '4', 35: '5', 36: '6', 37: '7', 38: '8', 39: '9'}
-        symbols = {1: '😍', 2: '👈', 3: '🤘', 4: '🤚', 5: '🤙', 6: '✋', 7: '🤛', 8: '🖐', 9: '🤞',
-                   10: '✊', 11: ' 👊', 12: '👍', 13: '👆', 14: '👇', 15: '👌', 16: '👎', 17: '🤝', 18: '😨',
-                   19: '🖖', 20: '👋', 21: '🙌', 22: '🤜', 23: '👐', 24: '👉', 25: '👏', 26: '🙏', 27: '   ', 
-                   28: '.', 29: ',',
-                   30: '0', 31: '1', 32: '2', 33: '3', 34: '4', 35: '5', 36: '6', 37: '7', 38: '8', 39: '9'}
-
-        final_text = []
-        
-
-        for letter in letters:
-            for i in signAlpha:
-                if letter == signAlpha[i]:
-                    result_sign = symbols[i]
-                    final_text.append(result_sign)
-
-        final_text = " ".join(final_text)
-        self.text_display_sign.setText(final_text)
-        final_text = []
         
         
 if __name__ == '__main__':
