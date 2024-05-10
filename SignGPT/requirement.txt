@@ -4,3 +4,4 @@ pickle
 numpy
 opencv-python
 openai
+scikit-learn==1.4.2.post1
