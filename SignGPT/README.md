@@ -14,8 +14,11 @@ This PyQt5 application utilizes hand detection algorithm to convert sign languag
 All requirement are stated in the requirement.txt file
 
 ## Installation
-1. Clone the repository:
-2. Install the required dependencies:
+1. Clone the repository: `git clone git@github.com:KasaFidie-Technologies/handsTalk.git`
+2. On `main` branch cd **SignGPT** directory
+3. Install the required dependencies: `pip3 install -r requirements.txt`
+4. Run project: `python signGPT.py`
+
 
 ## Usage
 To use this app first check the image file to know the possible sign detections images.
@@ -42,7 +45,7 @@ To use this app first check the image file to know the possible sign detections 
 - Thanks to the developers of PyQt5, OpenCV, MediaPipe, and especially openAI for providing the tools that enabled this project.
 -  Thanks to ATF Challenge who has place us on enthusiastic development atmosphere.
 
-## video
+## video demo
 [https://drive.google.com/file/d/12NCj1gQI6q7Gu56RuQ1pHcAuvn0Metdr/view?usp=sharing]
 
 
