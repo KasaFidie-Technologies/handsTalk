@@ -16,7 +16,7 @@ All requirement are stated in the requirement.txt file
 ## Installation
 1. Clone the repository: `git clone git@github.com:KasaFidie-Technologies/handsTalk.git`
 2. On `main` branch cd **SignGPT** directory
-3. Install the required dependencies: `pip3 install -r requirements.txt`
+3. Install the required dependencies: `pip3 install -r requirement.txt`
 4. Run project: `python signGPT.py`
 
 
