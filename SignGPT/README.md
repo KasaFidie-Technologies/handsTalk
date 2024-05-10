@@ -1,6 +1,6 @@
 # Hand Detection and Sign Language Conversion App
 
-This PyQt5 application utilizes hand detection techniques to convert hand gestures into sign language symbols. The application captures video from the camera, processes it using MediaPipe for hand detection, and converts the detected gestures into letters, the letter are sent to chatGPT 3.5 turbo for respond and the return respond are displaced in text and sign emoji for readabilty of choice.
+This PyQt5 application utilizes hand detection techniques to convert hand gestures into sign language symbols. The application captures video from the camera, processes it using MediaPipe for hand detection, and converts the detected gestures into letters, the letter are sent to chatGPT 3.5 turbo for respond.
 
 ## Features
 - Real-time hand detection and gesture recognition
@@ -27,8 +27,6 @@ To use this app first check the image file to know the possible sign detections 
 6. Click on submit button after composing your message for respond from chatGPT 3.5 turbo
 7. You can also edit message using the keyboard
 
-## Challenges
-We were unable to get the correct emojis for our translation and we are asking for any assistant, we appreciate that help.
 
 ## Contributor
 - Ezra Asiedu
