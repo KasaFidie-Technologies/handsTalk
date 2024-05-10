@@ -49,6 +49,6 @@ To use this app first check the image file to know the possible sign detections 
 [https://drive.google.com/file/d/12NCj1gQI6q7Gu56RuQ1pHcAuvn0Metdr/view?usp=sharing]
 
 
-## Bigger Vision
+## Our Vision
 
-This app in the future should be able to improve all signer's communication with AI tools and in all sectors. 
+This app in the future should be able to improve all signer's communication with AI tools and all other engagements. 
