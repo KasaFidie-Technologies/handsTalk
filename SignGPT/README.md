@@ -21,7 +21,7 @@ All requirement are stated in the requirement.txt file
 
 
 ## Usage
-To use this app first check the image file to know the possible sign detections images.
+To use this app first check the image folder to know the possible sign detections images. Also in the chatGPT.py use your openAI API key.
 1. Run the application by executing the Python script.
 2. Position your hand in front of the camera to start detecting gestures.
 3. As you make hand gestures, the application will convert them into textss and display the corresponding sign language symbols.
